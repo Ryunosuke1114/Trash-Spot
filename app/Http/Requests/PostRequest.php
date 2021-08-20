@@ -23,8 +23,8 @@ class PostRequest extends FormRequest
         return [
             'post.title'=>'required|string|max:50',
             'post.comment'=>'required|string|max:4000',
-            'post.lat'=>'required|double',
-            'post.lng'=>'required|double',
+            'post.lat'=>'required|numeric',
+            'post.lng'=>'required|numeric',
             //
         ];
     }

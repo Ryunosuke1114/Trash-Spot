@@ -19,6 +19,7 @@
                <p class='updated_at'>{{ $post->updated_at }}</p>
        </div>
         <div class="footer">
+            <p class="edit">[<a href="/posts/{{ $post->id }}/edit">edit</a>]</p>
             <a href="/">back</a>
         </div>  
        
