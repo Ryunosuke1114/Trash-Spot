@@ -18,10 +18,10 @@ class CreatePostsTable extends Migration
             $table->integer('user_id');
             $table->string('title',50);
             $table->text('comment');
-            $table->timestamp('deleted_at');
             $table->double('lat',8,6);
             $table->double('lng',9,6);
             $table->timestamps();
+            $table->softDeletes();
          });
     }
 

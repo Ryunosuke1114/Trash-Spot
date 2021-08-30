@@ -1,23 +1,15 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Trash Spot</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
-
+@extends('layouts.app')
         
-    </head>
-    <body>
-       <h1>Trash Spot</h1>
+ @section('content')
+ 　<div class="container">
+    <div class="col-xs-12">
+       <h1 class="text-danger">Trash Spot</h1>
        [<a href='/posts/create'>create</a>]
+       [<a href='/map'>Show Map</a>]
        <div class='posts'>
            @foreach($posts as $post)
-           <div class='post'>
-               <h3><a href="/posts/{{ $post->id }}">{{ $post->title }}</a>
+           <div class="post py-3 pr-3">
+               <h3 class="mb-2"><a class="text-danger" href="/posts/{{ $post->id }}">{{ $post->title }}</a></h3>
                <p class='comment'>{{ $post->comment }}</p>
            </div>
            @endforeach
@@ -25,5 +17,8 @@
        <div class='paginate'>
            {{ $posts->links() }}
        </div>
-    </body>
-</html>
+    </div>
+  </div>
+  @endsection
+  
+   

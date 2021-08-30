@@ -25,7 +25,7 @@ class PostRequest extends FormRequest
             'post.comment'=>'required|string|max:4000',
             'post.lat'=>'required|numeric',
             'post.lng'=>'required|numeric',
-            //
+            
         ];
     }
 }
