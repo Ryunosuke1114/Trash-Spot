@@ -38,4 +38,14 @@ class PostController extends Controller
 
         return redirect('/posts/' . $post->id);
     }
+    public function delete(Post $post)
+    {
+        $post->delete();
+        return redirect('/');
+    }
+    public function map(Post $post)
+    {
+        return view('map')->with(['posts' => $post->get()]);
+    }
+    
 }

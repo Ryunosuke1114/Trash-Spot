@@ -1,19 +1,10 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Trash Spot</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
-
+ @extends('layouts.app')
         
-    </head>
-    <body>
+　 @section('content')
+　 <div class="container">
       <h1 class="title">Edit</h1>
     <div class="content">
+        <div class="col-xs-12">
         <form action="/posts/{{ $post->id }}" method="POST">
             @csrf
             @method('PUT')
@@ -33,7 +24,9 @@
                 <h2>longitude</h2>
                 <input type='double' name='post[lng]' value="{{ $post->lng }}">
             </div>
-            <input type="submit" value="store"> 
+            <input type="submit" value="store" onclick="showMarkers()"> 
         </form>
-    </body>
-</html>
+        </div>
+    </div>
+    @endsection
+    

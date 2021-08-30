@@ -1,27 +1,32 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Trash Spot</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
-
-        
-    </head>
-    <body>
-       <h1>Trash Spot</h1>
+ @extends('layouts.app')
+ 
+　 @section('content')
+　 <div class="container">
+　   <div class="col-xs-12">
+       <h1 class="text-danger">Trash Spot</h1>
        <div class='post'>
-               <h2 class='title'>{{ $post->title }}</h2>
-               <p class='comment'>{{ $post->comment }}</p>
-               <p class='updated_at'>{{ $post->updated_at }}</p>
+               <h2 class='title py-3 pr-3'>{{ $post->title }}</h2>
+               <p class='comment mb-2'>{{ $post->comment }}</p>
+               <p class='updated_at mb-2'>{{ $post->updated_at }}</p>
        </div>
         <div class="footer">
             <p class="edit">[<a href="/posts/{{ $post->id }}/edit">edit</a>]</p>
             <a href="/">back</a>
-        </div>  
-       
-    </body>
-</html>
+        <form action="/posts/{{ $post->id }}" id="form_delete" method="post" style="display:inline">
+            @csrf
+            @method('DELETE')
+        <button type="button" onclick="return deletePost(this);">delete</button> 
+        </form>
+        </div>
+      </div>
+   </div>  
+         <script>
+            function deletePost(e){
+                'use strict';
+                if(confirm('削除したら元に戻せません\n本当に削除しますか？')){
+                    document.getElementById('form_delete').submit();
+                }
+            }
+        </script>
+        @endsection
+    
